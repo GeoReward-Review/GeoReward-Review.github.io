@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Supplementary Video Results</title>
+<style>
+:root {
+  --bg: #fafaf8;
+  --card: #ffffff;
+  --ink: #16181d;
+  --muted: #5a6068;
+  --accent: #0f6e6b;
+  --accent-soft: #0f6e6b14;
+  --hairline: #e4e4de;
+  --chip-good: #0d6b33;
+  --chip-good-bg: #0d6b3312;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101214;
+    --card: #17191c;
+    --ink: #e8eaed;
+    --muted: #9aa0a6;
+    --accent: #3cb8b2;
+    --accent-soft: #3cb8b21a;
+    --hairline: #26292e;
+    --chip-good: #6fd696;
+    --chip-good-bg: #6fd69618;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101214;
+  --card: #17191c;
+  --ink: #e8eaed;
+  --muted: #9aa0a6;
+  --accent: #3cb8b2;
+  --accent-soft: #3cb8b21a;
+  --hairline: #26292e;
+  --chip-good: #6fd696;
+  --chip-good-bg: #6fd69618;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px 96px; }
+header { padding: 64px 0 8px; text-align: center; }
+.eyebrow {
+  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600;
+}
+h1 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(28px, 4.4vw, 42px); line-height: 1.2;
+  font-weight: 600; margin: 14px auto 10px; max-width: 20em; text-wrap: balance;
+}
+.authors { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+.lede {
+  max-width: 46em; margin: 0 auto; text-align: left; color: var(--ink);
+}
+.guide {
+  max-width: 46em; margin: 28px auto 0; padding: 18px 22px;
+  background: var(--card); border: 1px solid var(--hairline); border-radius: 10px;
+  text-align: left; font-size: 14.5px; color: var(--muted);
+}
+.guide strong { color: var(--ink); }
+.guide ul { margin: 8px 0 0; padding-left: 20px; }
+.guide li { margin: 4px 0; }
+h2 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: 26px; font-weight: 600; margin: 64px 0 6px;
+  padding-top: 18px; border-top: 1px solid var(--hairline);
+}
+.secnote { color: var(--muted); font-size: 14.5px; margin: 0 0 24px; max-width: 56em; }
+.card {
+  background: var(--card); border: 1px solid var(--hairline); border-radius: 12px;
+  padding: 18px 18px 14px; margin: 0 0 28px;
+}
+.cardhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; margin-bottom: 12px; }
+.cardhead h3 { font-size: 17px; font-weight: 650; margin: 0; }
+.tag {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--accent); background: var(--accent-soft);
+  border-radius: 99px; padding: 2px 10px;
+}
+.metric {
+  font-variant-numeric: tabular-nums; font-size: 13.5px; color: var(--muted);
+  margin-left: auto;
+}
+.metric b { color: var(--chip-good); background: var(--chip-good-bg); border-radius: 6px; padding: 1px 7px; font-weight: 650; }
+video { width: 100%; display: block; border-radius: 8px; background: #101010; margin: 0 0 4px; }
+.vlabel { font-size: 13px; color: var(--muted); margin: 0 2px 12px; }
+footer {
+  margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--hairline);
+  color: var(--muted); font-size: 13.5px; text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">ICLR 2027 · Under Double-Blind Review · Supplementary Material</div>
+  <h1>Test-Time Geometric Alignment for Camera-Controlled Video Generation</h1>
+  <div class="authors">Anonymous authors</div>
+  <p class="lede">
+    This page shows video results for the source-referenced camera-control setting (Track&nbsp;B).
+    A frozen ReCamMaster generator re-renders a source video along a target camera trajectory;
+    the <em>baseline</em> is its unguided single sample (N&thinsp;=&thinsp;1), and <em>ours</em> selects the best of
+    eight candidates from the same pool with the Pi3 geometric-consistency reward. Each example
+    shows two synchronized comparisons: the RGB outputs, and the per-pixel fused GeCo error rendered
+    over the frames.
+  </p>
+  <div class="guide">
+    <strong>How to read these videos.</strong>
+    <ul>
+      <li>Each panel row is <strong>Source&nbsp;|&nbsp;Baseline&nbsp;|&nbsp;Ours</strong>, frame-synchronized. All 81 frames are shown, played at the generator&rsquo;s native 16&nbsp;fps.</li>
+      <li>In the GeCo videos, warmer colors mean larger fused geometric error (one shared scale per export). <strong>Untinted regions are excluded from evaluation</strong> (moving subjects, low depth confidence, or pixels without a valid neighboring view) &mdash; not zero error. The running number in each panel is that frame&rsquo;s fused error &times;10<sup>&minus;3</sup> (lower is better).</li>
+      <li>Headline numbers on each card are full-clip fused GeCo errors &times;10<sup>&minus;3</sup>.</li>
+      <li>These examples are <strong>selected high-improvement cases</strong>, chosen by ranking per-video GeCo reductions across all 480 matched comparisons; average behavior over the full evaluation is reported in the paper.</li>
+    </ul>
+  </div>
+</header>
+
+<h2>Controlled static scenes</h2>
+<p class="secnote">Ten synthetic static scenes re-rendered along standard presets and two out-of-distribution loops. GeCo is evaluated on the full frame.</p>
+
+<div class="card">
+  <div class="cardhead"><h3>Controlled scene 1 · Lemniscate</h3><span class="tag">OOD loop</span><span class="metric">fused GeCo 43.6 &rarr; 15.0 &nbsp;<b>&minus;65.5%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video01_loop_closure_cam4_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video01_loop_closure_cam4_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Controlled scene 4 · Arc left + rotation</h3><span class="tag">standard preset</span><span class="metric">fused GeCo 9.4 &rarr; 2.5 &nbsp;<b>&minus;72.9%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video04_basic_cam9_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video04_basic_cam9_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Controlled scene 6 · Translate down + rotation</h3><span class="tag">standard preset</span><span class="metric">fused GeCo 4.4 &rarr; 1.6 &nbsp;<b>&minus;64.2%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video06_basic_cam8_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video06_basic_cam8_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Controlled scene 10 · Lemniscate</h3><span class="tag">OOD loop</span><span class="metric">fused GeCo 28.1 &rarr; 18.8 &nbsp;<b>&minus;33.1%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video10_loop_closure_cam4_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video10_loop_closure_cam4_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Controlled scene 2 · Arc left + rotation</h3><span class="tag">standard preset</span><span class="metric">fused GeCo 3.4 &rarr; 2.7 &nbsp;<b>&minus;18.8%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video02_basic_cam9_pool42__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/controlled_video02_basic_cam9_pool42__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+
+<h2>Natural videos</h2>
+<p class="secnote">Ten real source videos re-rendered along standard presets and out-of-distribution loop trajectories (a lemniscate and an arc out-and-back). GeCo is evaluated on SAM-2 static-region masks; moving subjects are excluded from the error maps.</p>
+
+<div class="card">
+  <div class="cardhead"><h3>Natural video 1 · Lemniscate</h3><span class="tag">OOD loop</span><span class="metric">fused GeCo 105.8 &rarr; 50.1 &nbsp;<b>&minus;52.6%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video01_loop_closure_cam4_pool42__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video01_loop_closure_cam4_pool42__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Natural video 8 · Arc out-and-back</h3><span class="tag">OOD loop</span><span class="metric">fused GeCo 10.2 &rarr; 5.2 &nbsp;<b>&minus;48.8%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video08_loop_closure_cam6_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video08_loop_closure_cam6_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Natural video 6 · Arc left + rotation</h3><span class="tag">standard preset</span><span class="metric">fused GeCo 14.2 &rarr; 8.6 &nbsp;<b>&minus;39.3%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video06_basic_cam9_pool42__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video06_basic_cam9_pool42__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
+<div class="card">
+  <div class="cardhead"><h3>Natural video 9 · Zoom in</h3><span class="tag">standard preset</span><span class="metric">fused GeCo 9.0 &rarr; 5.7 &nbsp;<b>&minus;36.3%</b></span></div>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video09_basic_cam5_pool0__rgb.mp4"></video>
+  <p class="vlabel">RGB &mdash; Source | Baseline (N=1) | Ours (best-of-8)</p>
+  <video controls muted loop playsinline preload="metadata" src="videos/natural_video09_basic_cam5_pool0__geco.mp4"></video>
+  <p class="vlabel">GeCo fused error &mdash; Source | Baseline | Ours</p>
+</div>
